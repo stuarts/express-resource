@@ -265,7 +265,7 @@ express.HTTPSServer.prototype.resource = function(name, actions, opts){
     custom_routes = opts
   }
   else {
-    if('function' == typeof opts.custom_routes) {
+    if('object' == typeof opts && 'function' == typeof opts.custom_routes) {
       custom_routes = opts.custom_routes;
       delete opts.custom_routes;
     }
