@@ -145,7 +145,7 @@ Resource.prototype.map = function(method, path, fn){
   };
 
   // apply the route
-  this.app[method](route, function(req, res, next){
+  this.app[method](route, fn.middle_ware ? [], function(req, res, next){
     req.format = req.params.format || req.format || self.format;
     if (req.format) res.contentType(req.format);
     if ('object' == typeof fn) {
